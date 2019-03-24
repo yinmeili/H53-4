@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+      .a{
+          width:200px;
+          height:30px;
+          border-color: #cd854a;
+          float: left;
+      }
+      .b{
+        height:25px;
+        width:80px;
+        margin-top: 10px;
+        margin-left: 5px;
+      }
+      .c{
+        padding-top: 1px;
+      }
+      .com{
+        border:1px solid gray;
+        float: left;
+        margin:10px;
+        background-color: gray;
+      }
+    </style>
+</head>
+<body>
+<form>
+  <input class="a" id="memo" type="text" placeholder="请输入想查找的产品">
+  <input class="b" type="button" value="搜索" onclick="saveStorage('memo');" />
+  <p class="c">最近搜索</p>
+  <p id="msg"></p>
+  <input type="button" value="X" onclick="clearStorage('msg');" />
+</form>
+
+</body>
+<script type="text/javascript">
+    function saveStorage(id){
+      // var data=document.getElementById(id).value;
+      // localStorage.setItem(data);
+      var data = document.getElementById(id).value;
+        var time = new Date().getTime();
+        localStorage.setItem(time, data);
+        loadStorage('msg');
+    }
+    function loadStorage(id) {
+        var result='<div>'
+        for (var i = 0; i < localStorage.length; i++) {
+            var key = localStorage.key(i);
+            var value = localStorage.getItem(key);
+            result +='<p class="com">'+value+'</p>' ;
+        }
+        result+='</div>';
+        var target = document.getElementById(id);
+        target.innerHTML = result;
+    }
+    function clearStorage() {
+        localStorage.clear();
+        alert("全部数据被清除。");
+        loadStorage('msg');
+    }
+</script>
+</html>
