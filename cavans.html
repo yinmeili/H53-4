@@ -1,0 +1,119 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+         div{
+             width:200px;
+             height:50px;
+             text-align: center;
+             padding-top:30px;
+             position:absolute;
+             
+             
+         }
+         #canvas{ 	
+            position: absolute; 
+        } 
+    </style>
+</head>
+<body>
+    <div>谢谢惠顾</div>
+    <canvas id='canvas'weight="200" height="50"></canvas>
+
+</body>
+<script>
+    var canvas=document.getElementById('canvas');
+    var context=canvas.getContext("2d");
+    context.fillStyle="gray";
+    context.fillRect(0,0,200,50);
+    context.globalCompositeOperation="destination-out";
+    canvas.onmousedown=function(ev){
+        onmousemove();
+
+    }
+    canvas.onmouseup=function(ev){
+
+    }
+    canvas.onmousemove=function(ev){
+        context.beginPath(); 
+        context.arc(ev.pageX-canvas.offsetLeft,ev.pageY-canvas.offsetTop,10,0,Math.PI * 2); 
+        context.fillStyle='#ddd';
+        context.fill(); 
+        context.closePath(); 
+        Judege();
+    }
+    function Judge(){
+
+    }
+
+</script>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        canvas {
+            border: 1px solid red;
+            position: absolute;
+        }
+        #text{
+            width: 200px;
+            height:100px;
+            color:red;
+            position: absolute;
+            text-align: center;
+            line-height: 100px;
+            font-size:20px;
+            font-weight:bold;
+        }
+    </style>
+</head>
+<body>
+    <div id='text'>谢谢参与！</div>
+    <canvas id="canvas" width="200" height="100">
+	</canvas>
+</body>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");       
+    context.fillStyle = "gray";
+    context.fillRect(0, 0, 200, 100);
+    
+    // 刮奖效果
+        canvas.onmousedown=function(){
+            canvas.onmousemove=function(e){
+                context.globalCompositeOperation="destination-out";
+                    context.beginPath();
+                    context.arc(e.clientX,event.clientY,10,0,Math.PI*2);
+                    context.closePath();
+                    context.fill();
+                    //判断是否完成刮奖
+                    var img=context.getImageData(0, 0,200, 100);
+                    var count=0;
+                    for (var i=0;i<img.data.length;i+=4) { 		
+                        var a=img.data[i+3];
+                        if(a<10){
+                        count++;	
+                        } 			
+                    }	
+                    var percent=count/(img.data.length/4); 
+                    if(percent>0.85){
+                        context.clearRect(0,0,200,100);    
+                    }
+                }   
+        }
+        //效果消失
+        canvas.onmouseup=function(){
+            canvas.onmousemove=function(e){
+            }
+    } 
+</Script>
+</html>
