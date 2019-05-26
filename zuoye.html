@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box{
+            width:400px;
+            height:500px;
+            border: solid 5px white;
+            box-shadow: 3px 3px 3px 3px rgb(161, 160, 160);
+            background-size: contain;
+            background-repeat:no-repeat;
+            background-origin: border-box;
+            overflow: hidden;
+        }
+        img{
+            overflow: hidden;
+            z-index:-1;
+        }
+        #box:hover img{
+            transform: scale(2,2)
+        }
+        #div1{
+            width: 400px;
+            background: white;
+        }
+        #div1:hover #div21{
+            transform: scale(1);
+         }
+        #div1:hover{
+            transform: translateY(-150px);
+            z-index:2;
+        }
+
+        #div11{
+            width:60px;
+            height:20px;
+            background-color: rgb(255, 166, 0);
+            color:white;
+            margin-top:40px;
+           
+            
+        }
+        #div12{
+            width:400px;
+            font-size:20px;
+            color:black;
+            background-color: white;
+           
+        }
+        #div13{
+            width:400px;
+            font-size:20px;
+            color:rgb(255, 166, 0);
+            background-color: white;
+        }
+        
+        #div21{
+            width:400px;
+            font-size:15px;
+            color:black;
+            transform: scale(0);
+            background-color: white;
+
+        }
+    #a1{
+        width: 50px;
+        height: 50px;
+        border-radius: 30px;
+        background: orangered;
+        color:white;
+        text-align:center;
+        line-height: 30px;
+        font-size: 14px;
+        margin-top:-200px;
+        position: relative;
+        float:right;
+        margin-right: 20px;
+    }
+    #a{
+        color:gray;
+        font-size:14px;
+        padding-left:20px;
+        margin-top:-10px;
+        width: 400px;
+        
+    }
+   
+    #b{
+        padding-left: 50px;
+        font-size:14px;
+        margin-top:-30px;
+    }
+
+    #c{
+        background: gray;
+        opacity: 0.7;
+        width:400px ;
+        height: 270px;
+        transform: scale(0,0);
+        position: absolute;
+        margin-top:-264px;
+    }
+
+    #box:hover #c{
+        transform: scale(1,1);
+    }
+    #box:hover #a{
+        margin-top:130px;
+    }
+    #box:hover #b{
+        margin-top:130px;
+    }
+    #img1{
+        width:400px;
+        height:270px;
+        overflow: hidden;
+    }
+
+
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="img1">
+        <img src="images/zhanqiao.jpg" width="400" height="270" alt=""></div>
+        <div id="c"></div>
+        <div id="a1">15<span id="span1">五月</span></div>
+        <div id="div1">
+            <div id="div11">照片<div>
+            <div id="div12">青岛栈桥</div>
+            <div id="div13">国家AAAA级旅游景区</div>
+            <div id="div21">
+                    青岛栈桥是青岛海滨风景区的景点之一，是国务院于1982年首批公布的国家级风景名胜区。青岛栈桥位于游人
+                    如织的青岛中山路南端，桥身从海岸探入如弯月般的青岛湾深处。桥身供游人参观并在此停靠旅游船，由此乘
+                    船可看海上青岛。
+            </div>    
+        </div>
+        <div id="a">10分钟前<span id="b">123评论</span></div>
+    </div>
+
+   
+</body>
+</html>
