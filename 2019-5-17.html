@@ -1,0 +1,194 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LS01 JS用法</title>
+    <style type="text/css">
+        div{
+            background-color: #ddd;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div>层1</div>
+    <div>层2</div>
+    <div>层3</div>
+</body>
+<script src="https://code.jQuery.com/jquery-3.1.1.min.js"></script>
+<script>
+    $("div").mouseover(function(){
+        $(this).css("background","red");
+
+    }).mouseout(function(){
+        $(this).css("background","blue");
+    })
+</script>
+</html> -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LS01 JS用法</title>    
+</head>
+<body>
+<table>
+    <tr>
+        <td>用户名</td>
+        <td>
+            <input type="text" name="username" id="username"/>
+        </td>
+    </tr>
+     <tr>
+        <td>密码</td>
+        <td>
+            <input type="password" name="pwd"/>
+        </td>
+    </tr>
+     <tr>
+        <td colspan="2">
+            <input >
+        </td>
+        <td>
+            <input type="text" name="username"/>
+        </td>
+    </tr>
+</table>
+</body>
+<script>
+/*
+    $(选择器).val();
+    $("html标记)
+    $(选择器).append();向选中元素内部添加一个新元素
+    $(选择器).remove();将特定元素从页面结构中移除
+*/
+    $("#username").blur(function(){
+        var inputVal=$(this).val();
+        var errorTip=$("<span class="error">用户名不能为空</span>")
+        if(inputVal==""){
+            $(this).parent().append(errorTip);
+        }else{
+            $(".error").remove();
+        }
+    })
+</script>
+</html> -->
+ <!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LS01 JS用法</title>
+
+    
+</head>
+<body>
+<table>
+    <tr>
+        <td>用户名</td>
+        <td>
+            <input type="text" name="username" id="username"/>
+        </td>
+    </tr>
+     <tr>
+        <td>密码</td>
+        <td>
+            <input type="password" name="pwd"/>
+        </td>
+    </tr>
+     <tr>
+        <td colspan="2">
+            <input >
+        </td>
+        <td>
+            <input type="text" name="username"/>
+        </td>
+    </tr>
+</table>
+</body>
+<script type="text/javascript">
+/*向特定元素的后面插入新的节点
+after(),insertAfter()
+向特定元素的前面插入新的节点
+before() insertBefore()
+向特定元素标签内部最后位置添加新的节点
+append() appendTo()
+向特定元素标签内部最前的位置添加新的节点
+prepend() prependTo()
+*/
+    // $("username").blur(function(){
+    //     var inputVal=$(this).val();
+    //     if(inputVal==""){
+    //         $(".error").html("用户名不能为空");
+    //         $(".error").css("color","red");
+    //         $(".error").css({
+    //             "color":"purple",
+    //             "font-size":"30px"
+    //         });
+    //     }
+    // })
+/*
+val()用于设置或者获取表单元素的value值
+html()用于设置或获取双标记标签元素的标签内部的html内容
+css()用于设置选中元素的样式css("样式名"，"样式值")
+css({"样式名"："样式值"})
+*/
+</script>>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LS01 JS用法</title>
+    <style type="text/css">
+    .imgborder{
+        border:5px soild;
+    }
+    </style>
+    
+</head>
+<body>
+ <!-- <img src="show.png" id="show">
+ <button id="btn">改变属性</button>
+ <button id="btn1">改变class</button> -->
+ <button id="slidedown">slidedown</button>
+ <button id="slideup">slideup</button>
+ <button id="fadein">fadein</button>
+ <button id="fadeout">fadeout</button>
+</body>
+<script src="https://code.jquery.com/jquery"></script>
+<script type="text/javascript">
+    // $("#btn").click(function(){
+    //     $("#show").attr("src","2.jpg");
+    //     $("#show").attr("title","这是一张图片")；
+    //     alert($("#show").attr("title"));
+    //     $("#show").attr("title");
+    //     //移除特定属性
+    //     $("#show").removeAttr("title");
+    // })
+    // $("#btn1").click(function(){
+    //     $("#show").addClass("imgborder");
+    //     $("#show").removeClass("imgborder");
+    // })
+    /*
+        改变元素的高度来切换显示和隐藏
+    */
+    $("#slideup").click(function(){
+        $("div").slideUp(4000);
+    })
+
+
+    $("#slidedown").click(function(){
+        $("div").slideDown(4000);
+    })
+
+    $("#fadein").click(function(){
+        $("div").fadeIn(4000);
+    })
+
+    $("#fadeout").click(function(){
+        $("div").fadeOut(4000);
+    })
+
+
+</script>
+</html>

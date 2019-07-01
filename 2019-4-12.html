@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+   
+
+
+</head>
+<body>
+    <input type="text" class="forminput"id="username"/>
+    <ul is="list">
+        
+    </ul>
+    <input type="button" value="绑定点击事件">
+    <img src="image.baidu.com/search/detail?ct=503316480&z=0&ipn=d&word=%E5%9B%BE%E7%89%87&hs=0&pn=0&spn=0&di=92510&pi=0&rn=1&tn=baiduimagedetail&is=0%2C0&ie=utf-8&oe=utf-8&cl=2&lm=-1&cs=1986179278%2C1118313821&os=1011800134%2C3605107432&simid=3440756675%2C361207036&adpicid=0&lpn=0&ln=30&fr=ala&fm=&sme=&cg=&bdtype=0&oriquery=&objurl=http%3A%2F%2Fpic.58pic.com%2F58pic%2F15%2F68%2F59%2F71X58PICNjx_1024.jpg&fromurl=ippr_z2C%24qAzdH3FAzdH3Fooo_z%26e3Bcbrtv_z%26e3Bv54AzdH3Ffitstwg2p7AzdH3F8cmbcl08_z%26e3Bip4s&gsm=0&islist=&querylist=
+">
+</body>
+
+<script>
+    // var obj={
+    //     "x":1,
+    //     "y":2
+    // };
+    // var z="age";
+    // obj[z]=20;
+    // console.log(obj);
+    // console.log(obj.x);
+    // console.log(obj.y);
+    //创建JS对象
+    //构造函数的静态方法
+    // var obj={
+    //     "username":"zhangsan",
+    //     "age":20
+    // };
+    // var obj1=Object.create(obj);
+    // console.log(obj1);
+    // function Person(username,age){
+    //     this.username=username;
+    //     this.age=age;
+    //     // this.sayHi=function(){
+    //     //     console.log(this.username);
+    //     // }
+    // }
+    // Person.prototype.sayHi=function(){
+    //     console.log(this.username);
+    // }
+    // var person1=new Person("zhangsan",20);
+    // var person2=new Person("lisi",18);
+    // console.log(person1._proto_==Person.prototype);
+    // person1.sayHi();
+    // person2.sayHi();
+    // 1.var obj1={
+    //     属性名：属性值，
+    //     方法名：方法
+    // }
+    // 2.var obj1={}; var obj2=Object.create(obj1);
+    // 3.function Person(){}; var person1=new Person();
+    //cho14.pdf
+    // var objProto={z:3};
+    // var obj=Object.create(objProto);
+    // obj.x=1;
+    // obj.y=2;
+    // console.log(obj.x,obj.y,obj.z);
+    // console.log(obj.toString);
+    // console.log(obj._proto_==objProto);
+    // for(var i in obj){
+    //     console.log(i,obj[i]);
+    // }
+    //对象里面的某些属性和方法是没有办法被遍历到的
+    // var obj={x:1};
+    // Object.defineProperty(obj,'y',{enumerable:false});
+    // //可枚举性是false,则在遍历时该属性无法遍历出来
+    // console.log(obj);
+    // for(var i in obj){
+    //     console.log(i,obj[i]);
+    // }
+   
+   // var obj={x:1};
+   // //默认属性都为true
+   // obj.z=3;
+   // var obj={
+   //      _name:"jack"
+   // }
+   // Object.defineProperty(obj,"name",{
+   //      //确立属性可否删除，或其他属性可否配置
+   //      configurable:true,
+   //      enumerable:true,
+   //      get(){
+   //          return this._name;
+   //      },
+   //      set(){
+   //          this._name=val;
+   //      }
+   // })
+   // console.log(obj.name);
+    // zuoye!!!!!!!
+    // // 将代码的作用域独立，将document,window传入作为局部变量
+    // (function(d,w){
+    //     var tabTitleList=d.getElementsByClassName("login-tab");
+    //     var tabItemList=d.getElementsByClassName("tab-item");
+    //     for(var i=0;i<tabTitleList.length;i++){
+    //         (function(j){
+    //             tabTitleList[j].onmouseover=function(){
+    //                 for(var m=0;m<tabTitleList.length;m++){
+    //                     if(m==j){
+    //                         tabTitleList[j].style.display="block";
+    //                         tabTitleList[j].classList.add("active");
+    //                     }
+    //                     else{
+    //                         tabTitleList[m].style.display="none";
+    //                         tabTitleList[m].classList.remove("active");
+    //                     }
+    //                 }
+    //             }
+    //         })(i)
+            
+    //     }
+    // })(document,window);
+    // (function(d,w){
+
+    // })(document,window);
+    //---------ch14上课代码！！！！！！！！！！
+    // var obj={x:0};
+    // Object.defineProperty(obj,"y",{
+    //     value:1,
+    //     enumerable:true,
+    //     writable:true,
+    //     configurable:true
+    //     //可删除
+        
+    // })
+    // //获取特定对象，特定属性的属性描述符
+    // Object.getOwnPropertyDescriptor(obj,'y');
+    //给多个属性设置特性
+    // var obj={_x:1};
+    // Object.defineProperties(obj,{
+    //     y:{value:2,writable:true,enumerable:true},
+    //     z:{value:2,writable:true,enumerable:true},
+    //     x:{
+    //         get:function(){return this._x},
+    //         set:function(val){
+    //             this._x=val;
+    //         }
+    //     }
+    // });
+    // var o1={};
+    // Object.defineProperty(o1,'x',{
+    //     value:1,
+    //     writable:true
+    // });
+    // //o1做o2的原型对象
+    // //Object.create(o1)以o1为原型对象，生成一个新对象
+    // var o2=Object.create(o1);   
+    // o2.x=2;
+    // //delete删除属性时，只能删除自身所具有的的属性
+    // delete o2.x;
+    // console.log(o2.x);
+    // o2._proto_.x=3;
+    // // o2._proto_与o1是完全相同的对象的引用
+    // //改变其中一个，另一个也就变化
+    // console.log(o2.x);
+    // console.log(o1.x);
+    //cho15上课代码！！！！！！！！！！！
+    //-------------2019.4.15!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // var obj1={z:1};
+    // var obj2=Object.create(obj1);
+    // console.log(obj1._proto_==Object.prototype);
+    // console.log(obj2._proto_);//obj1
+    // console.log(obj2._proto_._proto_);
+    // console.log(obj2._proto_._proto_._proto_);
+    //delete删除属性时，只能删除自身所具有的的属性，没有办法删除原型链上的属性
+    // var obj1={
+    //     z:1,sayHi:function(){
+    //         console.log(this.z);
+    //     }
+    // }
+    // var obj2=Object.create(obj1);//继承，将新建对象添加到该对象的原型上
+    // obj2.z;
+    // obj2.sayHi();
+    // function Person(username,age){
+    //     this.username=username;
+    //     this.age=age;
+    //     this.sayHi(){
+    //         console.log(this.username);
+    //     }
+    // }
+    // //公用一个方法，不需要每个对象上都添加一个方法，较节省内存空间
+    // Person.prototype.sayHi=function(){
+    //     console.log(this.username);
+    // }
+    //验证
+    // var person=new Person("zhangsan",30);
+    // console.log(person._proto_==Person.prototype);
+    // Person.prototype==person._proto_;
+    // Person.prototype.construstor==Person;
+    // Person.prototype._proto_==Object.prototype;
+    // Object.prototype.construstor=Object;
+    // Object.prototype._proto_==null;
+    //创建一个小轿车（smallCar）的对象，继承车的相关属性
+    
+    // var car={
+    //     height:150;
+    //     width:200,
+    //     weight:2000
+    // }
+// 2019.4.22this指向！！！！！！！！！！！
+    //非严格模式
+    //严格模式下，this是undefined
+    //this是谁取决于函数调用的主体
+    // var x=10;
+    // console.log(window.x);
+    // function thisTest(){
+    //     console.log(this==window);
+    //     console.log(this);
+    // }
+    // thisTest();
+    // function thisTest(){
+    //     "use strict";
+    //     console.log(this);
+    //     return this===undefined?true:false;
+    // }
+    // thisTest();
+    // var point={
+    //     x:0;
+    //     y:0;
+    //     moveTo:function(x,y){
+    //         this.x=x;
+    //         this.y=y;
+    //     }
+    // }
+    // //直接定义在对象下的方法，调用主体就是当前对象，this指向也是当前对象，前提没有函数嵌套
+    // function Point(x,y){
+    //     this.x=x;
+    //     this.y=y;
+    //     this.moveTo=function(x,y){
+    //         this.x=x;
+    //         this.y=y;
+    //     }
+    // }
+    // var p=new Point(10,10);
+    // //this指向函数调用的主体
+    // p.moveTo(15,15);
+    // var objA={name:'AA',x:1};
+    // var objB={name:'BB',x:2};
+    // function test(){
+    //     console.log(this.name);
+    //     console.log(this.x);
+
+    // }
+    // objA.fun=test;
+    // objA.fun();
+    // //方法A.call（对象）
+    // //切换方法A的调用主体，this指向函数的调用主体
+    // objA.fun.call(objB);
+    // var point={
+    //     x:0,
+    //     y:0,
+    //     moveTo:function(x,y){
+    //         function moveToX(x){
+    //             this.x=x;
+    //         }
+    //         function moveToY(y){
+    //             this.y=y;
+    //         }
+    //         moveToX(x);
+    //         moveToY(y);
+    //     }
+    // }
+    // //函数内部的函数，存在嵌套关系，内部函数的this指向window对象,在moveTo中this指向obj1
+    //  //软绑定，此时that指向point
+    //  var point={
+    //     x:0,
+    //     y:0,
+    //     moveTo:function(x,y){
+    //         var that=this;
+    //         function moveToX(x){
+    //             that.x=x;
+    //         }
+    //         function moveToY(y){
+    //             that.y=y;
+    //         }
+    //         moveToX(x);
+    //         moveToY(y);
+    //     }
+    // }
+    // var point={
+    //     x:0,
+    //     y:0,
+    //     moveTo:function(x,y){
+    //          function moveToX(x){
+    //             this.x=x;
+    //         }
+    //         function moveToY(y){
+    //             this.y=y;
+    //         }
+    //         //切换moveToX的函数调用主体，并且执行moveTOX;
+    //         moveToX.call(this,x);
+    //         moveToY.call(this,y);
+    //     }
+    // }
+    // //仅仅是切换了函数，并没有执行
+    //  var point={
+    //     x:0,
+    //     y:0,
+    //     moveTo:function(x,y){
+    //          function moveToX(x){
+    //             this.x=x;
+    //         }
+    //         function moveToY(y){
+    //             this.y=y;
+    //         }
+    //         //切换moveToX的函数调用主体，并且执行moveTOX;
+    //         moveToX.bind(point)();
+    //         moveToY.bind(point)();
+    //     }
+    // }
+    // 2019.4.26！！！！！！！！！！！！！！！！！！！！！！
+    // var superObj={
+    //     x:1,
+    //     y:2
+    // };
+    // var subObj_First=Object.create(superObj);
+    // var subObj_Second=Object.create(superObj);
+    // subObj_First._proto_.x=5;
+    // console.log(subObj_Second.x);
+    // function Person(name){
+    //     this.name=name;
+    // }
+    // Person.prototype.age=20;
+    // Person.prototype.showName=function(){
+    //     console.log(this,name);
+    // }
+    // function Student(id){
+    //     this.id=id;
+    // }
+    // //person name属性mile，person._proto_.age
+    // //person._proto_.showName
+    // Student.prototype=new Person("Mike");
+    // var s1=new Student(2017011);
+    // var s2=new Student(2017012);
+    // console.log(s1);
+    // //s1自身上没有age,s1._proto_==Student.prototype
+    // //Student.prototype=person
+    // // s1._proto_._proto_==person._proto_
+    // // person._proto_==Person.prototype
+    // function Person(name,age){
+    //     this.name=name;
+    //     this.age=age;
+    // };
+    // Person.prototype.showName=function(){
+    //     console.log(this.name);
+    // }
+    // function Student(name,age,id){
+    //     //call执行Person方法  Person.call切换了Person函数内部this指向
+    //     Person.call(this,name,age);
+    //     this.id=id;
+    // }
+    // Student.prototype._proto_=Person.prototype;
+    // var s1=new Student('xxx',22,2017001);
+    // var s2=new Student('www',23,2017002);
+
+    // function Person(name,age){
+    //     this.name=name;
+    //     this.age=age;
+    // };
+    // Person.prototype.showName=function(){
+    //     console.log(this.name);
+    // };
+    // function Student(name,age,id){
+    //     Person.call(this,name,age);
+    //     this.id=id;
+    // }
+    // Student.prototype._proto_=Person.prototype;
+    // var s1=new Student('xxx',22,2017001);
+    // var s2=new Student('www',23,2017002);
+
+
+    // // 2019.4.29!!!!!!!!!!!!!!!!111111111111111
+    // function BaseClass(){
+
+    // }
+    // BaseClass.fn1=function(){
+    //     console.log('静态方法');
+    // }
+    // BaseClass.fn1();
+    // BaseClass.prototype.fn2=function(){
+    //     console.log('原型方法');
+    // }
+    // var base=new BaseClass();
+    // console.log(base._proto_==BaseClass.prototype);
+    // base.fn2();
+    // //为定义的方法
+
+    // // constructor指定构造函数
+    // function Person(username,age){
+    //     this.username=username;
+    //     this.age=age;
+    // }
+    // Person.prototype.constructor==Person;
+    // var person=new Person("zhangsan",20);
+    // person.constructor==Person
+    // var obj=new Object();
+    // obj.constructor==Object;
+    // (function(w,d){
+    //     //构造函数，构造函数会有配置参数
+    //     function inputIdentify(inputId){
+    //         this._init(inputId);
+    //         this._effect();
+    //     }
+    //     inputIdentify.prototype._init=function(){
+    //         var inputObject=d.getElementById(inputId);
+    //         this.inputObject=inputObject;
+    //     }
+    //     inputIdentify.prototype._effect=function(){
+    //         this.inputObject.onblur=function(){
+    //             alert("失去焦点");
+    //         }
+    //         this.inputObject.onfocus=function(){
+    //             alert("获得焦点");
+    //         }
+    //     }
+    //      w.inputIdentify=inputIdentify;
+    // })(window,document);
+    // var input1=new inputIdentify("username");
+
+    // var arr1=['a','b','c','d'];
+    // var arr2=arr1;
+    // arr1[0]='e';
+    // console.log(arr2);
+    // var arr1=[,2, ,4];
+    // Array.prototype.min=function(){
+    //     return "最小值";
+    // }
+
+    // console.log(arr1.length);
+    // for(var i in arr1){
+    //     console.log(i,arr1[i]);
+    // }
+    // var table=new Array(5);
+    // for(var i=0;i<table.length;i++){
+    //     table[i]=new Array(5);
+    // }
+    // for(var row=0;row<table.length;row++){
+    //     for(var col=0;col<table[row].length;col++){
+    //         table[row][col]=row*col;
+    //     }
+    // }
+    // var product=table[2][4];
+
+    // var arr1=[1,2,3];
+    // arr1.reverse();
+    // //逆转
+    // console.log(arr1);
+    // 2019.5.5
+    // var arr1=['a','b','c','d'];
+    // arr1.forEach(function(element,index,arr2){
+    //     console.log(element,index,arr2);
+    //     window.x=10;
+    // },window)
+    // //forEach(callback,thisArg);
+    // // callback(element,index,arr);
+    // // element遍历数组每次取到的数组元素值
+    // // index遍历数组每次取到的数组元素的索引
+    // // arr操作的数组
+    // // thisArg可以指明回调函数内部的this指向
+    // var arr3=[10,20,30,40];
+    // var result=arr3.every(function(value){
+    //     return value>20;
+    // })
+    // console.log(result);
+    // //都符合条件为true,有不符合条件为false
+    // var arr4=[1,2,3];
+    // var arr5=arr4.map(function(element){
+    //     return element*2;
+    // })
+    // console.log(arr5);
+    // //pdf19!!!!!!!!!!!!!!!!!!!
+    // var date1=new Date();
+    // var year-date1.getFullYear();
+    // var month=date1.getMonth();
+    // var date2=new Date(year,month);
+    // console.log(date2);
+    // //指明时间日期的字符串，字符串形式非常多样化
+    // var date3=new Date("2019-05-05");
+    // console.log(date3);
+    // //指明一个毫秒为单位的数字类型
+    // var date4=new Date(Date.now());
+    // console.log(date4);
+    // //本地时间：当前所处时区的标准时间
+    // //世界标准时间：UTC(格林威治时间)GMT
+    // var seconds=Date.parse("2019-05-05");
+    // console.log(seconds);
+    // var date1=new Date(seconds);
+    // console.log(date1);
+
+    // var date2=new Date();
+    // var seconds2=Date.parse(date2);
+    // console.log(second2>date2);
+
+    // var reg1=/[bcf]at/gi;
+    // var reg2=new RegExp(/[bcf]at/,"gi");
+    // var reg3=new RegExp(["[bcf]at","gi");
+    // console.log("a fAt bat,a faT cat".match(reg1));
+    //2019.5.6!!!!!!!!!!!!!!!!!!!
+        /*
+            /正则表达式的文本部分/正则表达式的标识符
+            [xzy]指的匹配中括号中任意的字符
+            标识符：g全局检索，i表示是否忽略大写
+            match返回正则表达式结果
+        */
+        // var reg1=/[bcf]at/gi;
+        // var str='fat cat bat Fat didfkdi';
+        // var arr=str.match(reg1);
+        // console.log(arr);
+        //普通字符
+        // var reg1=/adf/gi;
+        // var str="abcdef adf lil";
+        // var arr=str.match(reg1);
+        // console.log(arr);
+        // var reg2="adf*";
+        // console.log(str.match(reg2));
+        //. 表示任意的单个字符
+        // var reg3=/a.c/gi;
+        // console.log(str.match(reg3));
+        /*字符类别
+            \d匹配任意的阿拉伯数字【0-9】
+            \D匹配在特定位置上任意一个不是阿拉伯数字
+
+        */
+        // var reg4=/a\dc/gi;
+        // var reg4_2=/a\Dc/gi;
+        // var str4="a2c a3c abc";
+        // str4.match(reg4);
+        // str4.match(reg4_2);
+        /*
+            [xyz]从中括号的字符集当中任取一个字符
+            [^xyz]排除括号中
+        */
+        // var str="atf btf ktf";
+        // var reg=/[^abc]tf/gi;
+        // str.match(reg);
+        /*^匹配开始的位置
+          $匹配字符串的结束位置
+        */
+        // var reg1=/^a[0-9]/gi;
+        // var str1="a1 b2 c3 a4";
+        // str1.match(reg1);
+        // var reg2=/[0-9]z$/gi;
+        // var str2="abcd9z";
+        // var str2_2="bcfbdfdfd9";
+        // console.log(str2.match(reg2));
+        // console.log(str2_2.match(reg2));
+        //  console.log(str2.test(reg2));
+        // console.log(str2_2.test(reg2));
+        /*\d数字
+         \s空格
+         .任意一个字符
+         \w[A-Za-z0-9]
+        */
+        // var reg=/\d/gi;
+        // var reg=/[xyz]a/gi;
+        // var str1="xabjiya";
+        // str1.replace(reg,"m");
+        // //xa被替换成m
+        // var reg1=/(abc)\d/gi;
+        // var str="abc1efg2";
+        // var result=reg1.exec(str);
+        // console.log(result);
+        // //exec()搜索匹配返回一个数组或null
+        // /*分组可以看做当前正则表达式的子规则，分组匹配得到的内容，可以在exec方法调用的返回结果中查看*/
+        // var reg1=/(ab\d)\d/gi;
+        // var str="ab31efg2";
+        // var result=reg1.exec(str);
+        // console.log(result);
+
+        // var reg1=/(ab\d)(\def)\d/gi;
+        // var str="ab31efg2";
+        // var result=reg1.exec(str);
+        // console.log(result);
+        // /*反向引用，通过\数字，来引用前面出现的分组，数字表示前面出现的第几个分组*/
+        // var reg2=/(\d)a\1/gi;
+        // var reg3=/(\d)a(\d)/gi;
+        // var str2="2a1sss";
+        // str2.replace(reg,"x");
+        // var reg2=/(ss)a\1/gi;
+        // var str2="ssassji";
+        // var result=str2.replace(reg2,"x");
+        // console.log(result);
+        // /*String.prototype
+        //   str.replace(正则表达式，“替换成的内容”)；
+        // str.search(正则表达式)
+        // 在str当中检索符合正则表达式规则的内容，如果检索到了返回第一个字符出现的位置，如果没有返回-1
+        // RegExp.prototype
+        // reg.text(字符串)，验证字符串是否符合正则表达式规则，符合返回true,不符合返回false
+        // */
+        // var reg=/(ss)abc\d/gi;
+        // var str="kkafd ssabc2";
+        // var result=str.match(reg);
+        // console.log(result);
+        // /*验证压缩文件格式*/
+        // var reg=/(.*)\.(rar|zip|7zip|tgz)$/;
+        // /*
+        //     (.*)字符，*出现零次或任意多次   表示压缩文件的名字
+        //     \.转义成字符，对.进行转义，表示普通字符
+        //     (rar|zip|7zip|tgz)从其中任意取一个类型
+        //     $以前面的类型结尾
+
+        // */
+        // var reg1=/^#[a-fA-F0-9]{6}$/
+        // /*
+        //     ^#表示以#开头
+        //     [a-fA-F0-9]表示集合，从其中任取一个字符
+        //     {6}表示之前的字符出现6次
+        // */
+        // try{
+            
+        // }
+//2019.5.13!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\
+/*json字符串和js对象可以进行相互的转换
+并且js对象可以很容易的渲染到页面中
+所以可以将从后台获取到的json数据转换为js对象
+并在页面中渲染
+*/
+    // JSON.stringify(js对象)，可以将js对象数组，结构转化为json字符串
+    // var jsObject={
+    //     "username":"zhangsan",
+    //     "age":20,
+    //     "address":{"add":"石家庄","address":"11322"}
+
+    // }
+    // var jsonStr=JSON.stringify(jsObject,function(k,v){
+    //     if(typeof v=="number"){
+    //         return undefined;
+    //     }
+    //     return v;
+    // })
+    // // var jsonStr=JSON.stringify(jsObject);
+    // console.log(jsonStr);
+    // console.log(typeof jsonStr);
+
+    // var jsObject2=JSON.parse(jsonStr,function(k,v){
+    //     console.log(k,v);
+    // });
+    // console.log(jsObject2);
+    // console.log(typeof jsObject2);
+    //作为前后端交互时，数据传输。作为数据存储
+    //jQuery.min.js压缩版的，一般用于生产环境
+    //jQuery.js为压缩，一般用于开发环境
+    //$(jQuery选择器)
+//2019.5.17!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!111
+    // $("td:first").css("background","red");
+    // $("td:last").css("background","green");
+    // $("td:even").css("background","purple");
+    // $("td:odd").css("background","blue");
+    
+    //     eq(index)选中特定索引值得元素
+    //     gt(index)选择索引值大于index的元素
+    //     lt(index)选中索引值小于index的元素
+    
+    // $("td:eq(0)").css("background","black");
+    // $("td:gt(1)").css("background","white");
+    // $("td:lt(3)").css("background","yellow");
+
+
+    </script>
+    <script src="https://code.jQuery.com/jQuery-3.1.1.min.js"></script>>
+
+</html>
